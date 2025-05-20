@@ -18,6 +18,7 @@ public class Joia {
 	private String material;
 	private Double price;
 	private String imgUrl;
+	private Integer quantity;
 	
 	@ManyToOne
 	private Maleta maleta;
@@ -51,6 +52,12 @@ public class Joia {
 	}
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
+	}
+	public Integer getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
 	}
 	
 	

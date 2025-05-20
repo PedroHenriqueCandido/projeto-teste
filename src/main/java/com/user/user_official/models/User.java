@@ -1,11 +1,17 @@
 package com.user.user_official.models;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -22,6 +28,10 @@ public class User {
     private String role; // ex: "ADMIN", "USER"
     private LocalDate createdAt;
     private String imgUrl;
+    
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Notas> notas = new ArrayList<>();
 
     public User() {
         this.createdAt = LocalDate.now(); // Define a data atual ao criar um novo usuário
@@ -84,4 +94,14 @@ public class User {
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
 	}
+
+	public List<Notas> getNotas() {
+		return notas;
+	}
+
+	public void setNotas(List<Notas> notas) {
+		this.notas = notas;
+	}
+	
+	
 }

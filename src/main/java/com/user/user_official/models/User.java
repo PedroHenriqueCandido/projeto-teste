@@ -21,6 +21,7 @@ public class User {
     private String email;
     private String role; // ex: "ADMIN", "USER"
     private LocalDate createdAt;
+    private String imgUrl;
 
     public User() {
         this.createdAt = LocalDate.now(); // Define a data atual ao criar um novo usuário
@@ -75,4 +76,12 @@ public class User {
     public void setRole(String role) {
         this.role = role;
     }
+
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
 }
